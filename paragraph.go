@@ -25,6 +25,23 @@ func (p *Paragraph) AddText(text string) *Run {
 	return run
 }
 
+// AddTextWithSpace add text include spaces to paragraph
+func (p *Paragraph) AddTextWithSpace(text string) *Run {
+	t := &Text{
+		Text:     text,
+		XMLSpace: "preserve",
+	}
+
+	run := &Run{
+		Text:          t,
+		RunProperties: &RunProperties{},
+	}
+
+	p.Data = append(p.Data, run)
+
+	return run
+}
+
 // AddLink add hyperlink to paragraph
 func (p *Paragraph) AddLink(text string, link string) *Hyperlink {
 	rId := p.file.addLinkRelation(link)
