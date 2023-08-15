@@ -1,3 +1,3 @@
-module github.com/gingfrederik/docx
+module github.com/osdir/docx
 
 go 1.13
